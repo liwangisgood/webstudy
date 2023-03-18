@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .div1class {
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .div1class1 {
+            background-color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <script>
+        var divs = document.getElementsByTagName('div');
+        // 数组遍历
+        console.log("divs是数组吗？" + Array.isArray(divs));
+        console.log("divs是数组吗？" + typeof divs);
+        console.log('divs[0]是什么类型？' + typeof divs[0]);
+        console.log('divs.item(0)是什么类型？' + typeof divs.item(0));
+        console.log(divs[0] === divs.item(0));
+        console.log(divs[0] == divs.item(0));
+
+        console.log('divs::' + divs)
+        console.log(divs)
+
+        console.log('1--------------------');
+        console.log(divs[0]);
+        console.log(divs[1]);
+        console.log('2--------------------');
+        // for+index
+        for (var i = 0; i < divs.length; i++) {
+            console.log(divs[i]);
+        }
+        console.log('3--------------------');
+        var i = 0;
+        while (i < divs.length) {
+            console.log(divs[i++]);
+        }
+        console.log('4--------------------');
+        //for of
+        for (const div of divs) {
+            console.log(div);
+        }
+        // for in
+        console.log('5--------------------');
+
+        for (var i in divs) {
+            console.log(i);
+        }
+        console.log('6--------------------');
+        // 不是数组 下面不成功
+        // divs.forEach(function(item,index,self){
+        //     console.log(item+" "+index+" "+self);
+        // });
+        console.log('7--------------------');
+        console.log(divs.length);
+        for (var i = 0; i < divs.length; i++) {
+            console.log(divs.item(i));
+        }
+        console.log('8--------------------');
+
+        // 操作类数组dom元素
+        var div11 = divs[0];
+        console.log(div11);
+        //读
+        console.log(div11.innerText);
+        console.log(div11.innerHTML);
+        //写
+        console.log(div11.innerHTML = 333);
+        div11.innerHTML="<a href='https://www.bilibili.com/'>bilibili</a>"
+        divs[1].innerText = 222;
+
+        // classList对象操作
+        console.log('9--------------------');
+        var div1 = divs.item(0);
+        div1.id = 'div1Id';
+        div1.className = 'div1class div1class1';
+        //undefined
+        console.log(div1.classList.add('one'));
+        //true
+        console.log(div1.classList.contains('one'));
+        //true
+        console.log(div1.classList.replace('one', 'three'));
+        //undefined
+        console.log(div1.classList.remove('two'));
+        //undefined
+        console.log(div1.classList.remove('one'));
+        //undefined
+        console.log(div1.classList.toggle('three',true));
+
+    </script>
+
+</body>
+
+</html>

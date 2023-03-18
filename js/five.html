@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function fn(m, n) {
+            return m ? fn(m - 1, n).concat(n) : [];
+        }
+        function fun(m, n) {
+            return Array.from({ length: m }, () => n)
+        }
+
+        // console.time("Test code1");
+        // // 执行需要测试的代码
+        // for (let i = 0; i < 1000; i++) {
+        //     console.log(12);
+        // }
+        // console.timeEnd("Test code1");/* 68ms */
+
+        // console.time("Test code3");
+        // // 执行需要测试的代码
+        // fn(10000, 1)
+        // console.timeEnd("Test code3");/* 536ms */
+
+        // console.time("Test code2");
+        // // 执行需要测试的代码
+        // fun(10000, 1)
+        // console.timeEnd("Test code2");/* 0ms */
+
+        // reduce
+        let arr = [1, 2, 3, 4, 5]
+        console.log(arr.reduce((a, b) => a + b)) // - 15
+        console.log(arr.reduce((a, b) => a * b))  // - 120
+        // reduce统计元素出现次数
+        var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice', 'Bob', 'Bob'];
+        var countedNames = names.reduce(function (allNames, name) {
+            console.log(allNames, name);
+            if (name in allNames) {
+                allNames[name]++;
+            }
+            else {
+                allNames[name] = 1;
+            }
+            return allNames;
+        }, {});
+        console.log(countedNames);
+
+        var person = {
+            firstName: "John",
+            'lastName': "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+        console.log(person.firstName);/* John */
+        console.log(person.lastName);/* Doe */
+
+        // let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'];
+        let myArray = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4];
+        console.time("Test code2");
+        console.log(Array.from(new Set(myArray)));
+        console.timeEnd("Test code2");
+
+        console.time("Test code2");
+        // let myOrderedArray = myArray.reduce(function (accumulator, currentValue) {
+        //     if (accumulator.indexOf(currentValue) === -1) {
+        //         accumulator.push(currentValue)
+        //     }
+        //     return accumulator;
+        // }, []);
+        // console.log(myOrderedArray); 
+
+        let result = arr.sort().reduce((init, current) => {
+            if (init.length === 0 || init[init.length - 1] !== current) {
+                init.push(current);
+            }
+            return init;
+        }, []);
+        console.log(result); // - [1,2,3,4,5]
+        console.timeEnd("Test code2");
+
+        var obj = {
+            name: 'xiaoming',
+            age: 18
+        }
+        console.log('0--------------');
+        console.log(obj);/* { name: "xiaoming", age: 18 } */
+        obj['gender'] = [];
+        console.log(obj);/* { name: "xiaoming", age: 18, gender: [] } */
+        console.log('1--------------');
+        console.log(obj['age']);/* 18 */
+        console.log(obj['123']);/* undefined */
+        console.log(!undefined);/* true */
+
+        // console.log(obj[age]);/* Uncaught ReferenceError: age is not defined */
+
+        console.log('2--------------');
+        console.log(!null);/* true */
+        console.log(![]);/* false */
+        console.log(!{});/* false */
+        console.log(!0);/* true */
+        console.log(!false);
+        console.log(!'');/* true */
+        console.log(!NaN);/* true */
+        console.log(!isNaN);/* false */
+
+        console.log('3--------------');
+        console.log(typeof new Boolean('').toString());/* string */
+        console.log(new Boolean('').toString());/* 'false' */
+        console.log(new Boolean(2).toString());/* 'true' */
+        console.log(new Boolean({}).toString());/* 'true' */
+        // console.log(object);
+        console.log(new Boolean('').valueOf());/* false */
+        console.log(new Boolean(2).valueOf());/* true */
+        console.log(new Boolean({}).valueOf());/* true */
+
+        console.log('4--------------');
+        console.log(typeof '12' === 'string');/* true */
+        console.log('01234567'.indexOf('3', 4));/* -1 */
+        console.log('01234567'.lastIndexOf('7', 4));/* -1 */
+
+        console.log('01234567'.indexOf('4', 4));/* 4 */
+        console.log('01234567'.lastIndexOf('4', 4));/* 4 */
+
+        var str = "The rain in SPAIN stays mainly in the plain";
+        var n = str.match(/ain/g);
+        console.log(n);/* [ "ain", "ain", "ain" ] */
+        console.log(typeof n);/* object */
+        console.log(Array.isArray(n));/* true */
+        var a=/ain/i;
+        var m = str.match(a);
+        console.log(m);/* [ "ain" ] */
+        var b='dwiebfai';
+        console.log(str.match(/b/));/* null */
+
+        console.log(typeof '123' =='string');
+
+
+
+    </script>
+</body>
+
+</html>

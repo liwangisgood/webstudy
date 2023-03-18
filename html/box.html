@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin-bottom: 1px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-item {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            margin: 1px;
+            /*  */
+            flex: 0.1;
+        }
+
+        .one {
+            border: 10px solid rebeccapurple;
+        }
+
+        .two {
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            float: left;
+        }
+
+        .add {
+            clear: both;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            left: 100px;
+        }
+
+        .box1 {
+            width: 900px;
+            height: 900px;
+            background-color: red;
+            position: fixed;
+            left: 50px;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">31</div>
+        <div class="flex-item">32</div>
+        <div class="flex-item">33</div>
+    </div>
+    <div class="flex-container">1</div>
+    <div class="flex-container">2</div>
+    <hr size="2" color="red">
+    <div class="one clearfix">
+        <div class="two"></div>
+        <div class="add"></div>
+    </div>
+    <h2>相对定位</h2>
+    <div class="box"></div>
+    <h2>绝对定位</h2>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

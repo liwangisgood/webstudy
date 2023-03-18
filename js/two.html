@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 5px solid red;
+            padding: 10px;
+            margin: 20px;
+            background-color: green;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        .box2 {
+            width: 50px;
+            height: 50px;
+            background-color: purple;
+        }
+
+        h3 {
+            width: 10px;
+            height: 500px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">d</div>
+    <h3>标题1</h3>
+    <h3>标题2</h3>
+    <h3>标题3</h3>
+    <!-- 鼠标事件 click dblclick mousedown mouseup mousemove mouseenter mouseleave mouseover mouseout-->
+
+    <!-- 进入事件元素、子元素、离开子元素触发 -->
+    <div class="box">
+        <div class="box1" onmouseover="output()">
+            <div class="box2">555</div>
+        </div>
+    </div>
+    <hr>
+
+        <!-- 进入事件元素、子元素、离开子元素触发 -->
+        <div class="box">
+            <div class="box1" onmouseleave="output()">
+                <div class="box2" >555</div>
+            </div>
+        </div>
+        <hr>
+
+    <!-- 仅离开事件元素触发 -->
+    <div class="box">
+        <div class="box1" onmouseout="output()">
+            <div class="box2" >555</div>
+        </div>
+    </div>
+    <hr>
+
+    <!-- 仅进入事件元素触发 -->
+    <div class="box">
+        <div class="box1" onmouseenter="output()">
+            <div class="box2" >555</div>
+        </div>
+    </div>
+
+    <button id="btn1" onclick="output()">click</button>
+    <button id="btn2" ondblclick="output2()">dblclick</button>
+    <div class="box" ondblclick="output2()">123456</div>
+
+    <!-- 输入串格式验证 input  -->
+    <input type="text" id="text1" onkeydown="inputText(document.getElementById('text1').value)" placeholder="输入串格式验证">
+
+    <script>
+        var box = document.getElementById('box');
+        console.log('1----------------');
+        console.log(box.clientHeight);
+        console.log(box.clientWidth);
+
+        console.log('2----------------');
+        console.log(document.body.clientHeight);
+        console.log(document.body.clientWidth);
+
+        console.log('3----------------');
+        console.log(document.documentElement.clientHeight);
+        console.log(document.documentElement.clientWidth);
+
+        // clientHeight
+        console.log('4----------------');
+        console.log(box.scrollHeight);
+        console.log(box.scrollWidth);
+
+        console.log('5----------------');
+        console.log(document.body.scrollHeight);
+        console.log(document.body.scrollWidth);
+
+        console.log('6----------------');
+        console.log(document.documentElement.scrollHeight);
+        console.log(document.documentElement.scrollWidth);
+
+        // 获取滚动高度
+        console.log(`output->`, document.documentElement.scrollTop);
+        console.log(document.documentElement.scrollLeft);
+
+        // 鼠标左键单击事件
+        // html事件，js没有和html代码分开;用dom0事件，html与js分离,无法加多个事件；dom2事件，标签对象.addEventListener('事件名称',function()){}可加多个事件
+        function output() {
+            console.log('111');
+        };
+
+        function output2() {
+            console.log('dblclick');
+        };
+        function inputText(inputStr) {
+            var str = inputStr.trim();
+            if (str == '') {
+                alert('输入不能为空');
+            }
+            var regex = '/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/'
+            if (!regex.test(str)) {
+                alert('不匹配');
+            }
+        };
+
+
+
+    </script>
+</body>
+
+</html>
